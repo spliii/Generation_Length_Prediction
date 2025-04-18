@@ -14,8 +14,14 @@
 
 | 数据集类型 | 内容描述                              | 备注                          |
 |------------|---------------------------------------|-------------------------------|
-| 提供的数据集     | `dataset.csv` | 在附件中的文件。包含prompt和使用Llama-3.2-1B-Instruct进行5次实验的输出长度均值      |
-| 评分数据集     | `judge.csv`                      | **需要提交**的文件。仅包含prompt。            |
+| 提供的数据集     | `lmsys-chat-1m-llama-3.2-1b-instruct-10K.json` | 在附件中的文件。基于lmsys-chat-1m数据集生成，包含prompt和使用Llama-3.2-1B-Instruct的输出内容及长度。      |
+
+- 可以自行划分训练和测试数据。
+
+lmsys-chat-1m-llama-3.2-1b-instruct-10K.json的结构如下：
+![数据集结构](https://github.com/user-attachments/assets/203206e0-8c4e-4c39-ba4c-7ee061e981b2)
+长度分布（运行时设置了最大生成长度8192token）：
+![d66f61cb365add4a7631ca7eac71d5c](https://github.com/user-attachments/assets/3cd19feb-7b76-4717-bad1-65f791097d06)
 
 ---
 
@@ -34,7 +40,7 @@
     cls_embedding = outputs.last_hidden_state[:,0,:]  # [batch_size, 768]
     ```
 
-2. **长度分桶策略**：
+2. **长度分桶策略（桶大小和数量仅为示例）**：
 
     - 类别0: ([0, 200)) tokens
     - 类别1: ([200, 400)) tokens
