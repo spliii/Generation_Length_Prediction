@@ -74,7 +74,7 @@ lmsys-chat-1m-llama-3.2-1b-instruct-10K.json的结构如下：
 
 ### 3.1 数据预处理
 
-- 统一使用Llama-3的SentencePiece分词器处理
+- 统一使用Llama-3的Tiktoken分词器处理
 
 
 ### 3.2 评估指标
